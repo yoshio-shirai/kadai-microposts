@@ -1,0 +1,15 @@
+<% if microposts.any? %>
+  <ul class="list-unstyled">
+    <% microposts.each do |micropost| %>
+      <li class="media">
+          <div>
+            <%= micropost.user.name %>
+            <%= link_to 'お気に入り一覧へ', likes_user_path(micropost.user) %><br>
+            <%= micropost.content %><br>
+            
+            <%= render 'favorites/favorite_button', micropost: micropost %>
+          </div>
+      </li>
+    <% end %>
+  </ul>
+<% end %>
